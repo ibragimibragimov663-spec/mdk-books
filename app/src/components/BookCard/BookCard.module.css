@@ -1,0 +1,206 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ── Cover ── */
+.coverWrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--color-bg);
+  overflow: hidden;
+  margin: 8px 8px 0;
+  border-radius: 8px;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e8f4f4 0%, #d0eaea 100%);
+}
+
+.coverEmoji {
+  font-size: 48px;
+  opacity: 0.6;
+}
+
+/* ── Badges ── */
+.badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badgeNew      { background: var(--color-primary); color: #fff; }
+.badgeDiscount { background: var(--color-danger); color: #fff; }
+.badgeOut      { background: #374151; color: #fff; }
+
+/* ── Wishlist ── */
+.wishlistBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition);
+  border: none;
+  opacity: 0;
+  transition: opacity var(--transition), color var(--transition);
+}
+
+.card:hover .wishlistBtn {
+  opacity: 1;
+}
+
+.wishlisted {
+  opacity: 1 !important;
+  color: var(--color-danger);
+}
+
+/* ── Info ── */
+.info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+/* ── Rating ── */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ratingValue {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.ratingCount {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* ── Title / Author ── */
+.title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.author {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Bottom: price + cart ── */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 10px;
+  gap: 8px;
+}
+
+.prices {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.oldPrice {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.cartBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  flex-shrink: 0;
+  border: none;
+}
+
+.cartBtn:hover:not(.cartBtnDisabled) {
+  background: var(--color-primary-hover);
+  transform: scale(1.06);
+}
+
+.cartBtnAdded {
+  background: var(--color-success) !important;
+}
+
+.cartBtnDisabled {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}

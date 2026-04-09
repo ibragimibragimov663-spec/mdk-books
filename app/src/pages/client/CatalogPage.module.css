@@ -1,0 +1,28 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding-bottom: 0;
+}
+
+.layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding-bottom: 64px;
+}
+
+/* Filters sticky */
+.layout > :first-child {
+  position: sticky;
+  top: calc(var(--header-height) + 16px);
+}
+
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .layout > :first-child { position: static; }
+}
